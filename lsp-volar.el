@@ -70,7 +70,7 @@
                 '(:npm :package "typescript"
                        :path "tsserver"))
 
-(lsp-dependency 'volar-language-server
+(lsp-dependency 'vue-language-server
                 '(:system "vue-language-server")
                 '(:npm :package "@vue/language-server" :path "vue-language-server"))
 
@@ -107,7 +107,7 @@ in the WORKSPACE-ROOT."
  (make-lsp-client
   :new-connection (lsp-stdio-connection
                    (lambda ()
-                     `(,(lsp-package-path 'volar-language-server) "--stdio")))
+                     `(,(lsp-package-path 'vue-language-server) "--stdio")))
   :activation-fn 'lsp-volar--activate-p
   :priority 0
   :multi-root nil
@@ -131,7 +131,7 @@ in the WORKSPACE-ROOT."
                                               ,(lsp-make-file-system-watcher :glob-pattern "**/*.tsx")
                                               ,(lsp-make-file-system-watcher :glob-pattern "**/*.json")])))))
   :download-server-fn (lambda (_client callback error-callback _update?)
-                        (lsp-package-ensure 'volar-language-server
+                        (lsp-package-ensure 'vue-language-server
                                             callback error-callback))))
 
 (provide 'lsp-volar)
