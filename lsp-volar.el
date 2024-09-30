@@ -72,7 +72,7 @@
 
 (lsp-dependency 'volar-language-server
                 '(:system "vue-language-server")
-                '(:npm :package "@volar/vue-language-server" :path "vue-language-server"))
+                '(:npm :package "@vue/language-server" :path "vue-language-server"))
 
 (lsp-register-custom-settings
  '(("typescript.tsdk" (lambda () (if-let ((project-root (lsp-workspace-root))
